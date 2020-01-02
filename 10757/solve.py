@@ -1,5 +1,5 @@
-# https://www.acmicpc.net/problem/15740
-# A+B -9
+# https://www.acmicpc.net/problem/10757
+# 큰 수 A+B
 # Written in python3
 # 2020. 01. 02.
 # Wizley
