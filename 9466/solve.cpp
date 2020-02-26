@@ -1,7 +1,7 @@
 // https://www.acmicpc.net/problem/9466
 // 텀 프로젝트
 // Written in C++ langs
-// 2020. 02. 24.
+// 2020. 02. 25.
 // Wizley
 
 #include <iostream>
