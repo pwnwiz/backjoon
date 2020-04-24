@@ -1,7 +1,7 @@
 // https://www.acmicpc.net/problem/2109
 // 순회 강연
 // Written in C++ langs
-// 2020. 04. 01.
+// 2020. 04. 02.
 // Wizley
 
 #include <iostream>

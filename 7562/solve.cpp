@@ -1,7 +1,7 @@
 // https://www.acmicpc.net/problem/7562
 // 나이트의 이동
 // Written in C++ langs
-// 2020. 04. 06.
+// 2020. 04. 07.
 // Wizley
 
 #include <iostream>

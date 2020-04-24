@@ -1,7 +1,7 @@
 // https://www.acmicpc.net/problem/1449
 // 수리공 항승
 // Written in C++ langs
-// 2020. 04. 01.
+// 2020. 04. 02.
 // Wizley
 
 #include <iostream>
