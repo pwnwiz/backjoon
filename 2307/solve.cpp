@@ -1,7 +1,7 @@
 // https://www.acmicpc.net/problem/2307
 // 도로검문
 // Written in C++ langs
-// 2020. 04. 28.
+// 2020. 04. 29.
 // Wizley
 
 #include <iostream>

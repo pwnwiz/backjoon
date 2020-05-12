@@ -1,78 +1,65 @@
-// https://www.acmicpc.net/problem/2211
-// 네트워크 복구
+// https://www.acmicpc.net/problem/1021
+// 회전하는 큐
 // Written in C++ langs
-// 2020. 04. 24.
+// 2020. 05. 12.
 // Wizley
 
 #include <iostream>
 #include <algorithm>
-#include <iomanip>
 #include <vector>
-#include <queue>
-#include <string.h>
-#include <map>
-#include <tuple>
-#include <math.h>
-
-#define INF 99999999
+#include <deque>
+#include <bitset>
 
 using namespace std;
 
 int N, M;
-vector<vector<pair<int,int>>> NETWORK(1001);
-int DISTANCE[1001]={0,};
-int PARENT[1001]={0,};
-
-void dijkstra(){
-    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<>> pq;
-    
-    pq.push(make_pair(0,1));
-    DISTANCE[1] = 0;
-    
-    while(!pq.empty()){
-        int x = pq.top().second;
-        int w = pq.top().first;
-        pq.pop();
-        
-        if(DISTANCE[x] < w) continue;
-        
-        for(int i=0; i<NETWORK[x].size(); i++){
-            int y = NETWORK[x][i].second;
-            int cur_weight = NETWORK[x][i].first + w;
-            
-            if(cur_weight < DISTANCE[y]){
-                DISTANCE[y] = cur_weight;
-                pq.push(make_pair(cur_weight, y));
-                PARENT[y] = x;
-            }
-        }
-    }
-    
-    cout << N-1 << "\n";
-    for(int i=2; i<=N; i++){
-        cout << PARENT[i] << " " << i << "\n";
-    }
-    
-}
+int TOTAL = 0;
 
 int main(){
     ios_base :: sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
- 
-    cin >> N >> M;
-    int a, b, c;
-    for(int i=0; i<M; i++){
-        cin >> a >> b >> c;
-        NETWORK[a].push_back(make_pair(c,b));
-        NETWORK[b].push_back(make_pair(c,a));
+    
+    cin >> M >> N;
+    
+    deque<int> dq;
+    
+    for(int i=1; i<=M; i++){
+        dq.push_back(i);
     }
     
-    for(int i=1; i<=N; i++){
-        DISTANCE[i] = INF;
+    int idx;
+    for(int i=0; i<N; i++){
+        cin >> idx;
+        
+        auto cur = find(dq.begin(), dq.end(), idx);
+        int dist_front = distance(dq.begin(), cur);
+        int dist_end = distance(cur, dq.end()) ;
+
+        if(dist_front <= dist_end){
+            while(dist_front>0){
+                int pop = dq.front();
+                dq.pop_front();
+                dq.push_back(pop);
+                TOTAL++;
+                dist_front--;
+            }
+            dq.pop_front();
+        } else {
+            while(dist_end>0){
+                int pop = dq.back();
+                dq.pop_back();
+                dq.push_front(pop);
+                TOTAL++;
+                dist_end--;
+            }
+            dq.pop_front();
+        }
     }
     
-    dijkstra();
+    cout << TOTAL << "\n";
+    
     return 0;
+    
 }
 
