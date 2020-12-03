@@ -44,7 +44,7 @@ int main(){
         }
     }
     
-    for(int i=0; i<total; i++){
+    for(int i=0; i<=total; i++){
         if(DP[i] >= M){
             cout << i << "\n";
             break;
