@@ -43,9 +43,10 @@ struct TRIE {
             return terminal;
         }
         
-        if(terminal == true){
-            return false;
-        }
+	// FIX LOGIC BUG
+        //if(terminal == true){
+        //    return false;
+        //}
         
         int next = key[pos] - 'a';
         
